@@ -1,0 +1,79 @@
+@import url("http://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap");
+@import url("https://fonts.bunny.net/css?family=annie-use-your-telescope:400");
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro:wdth,wght@125,900&display=swap");
+
+.summary {
+	font-family: "Annie Use Your Telescope", handwriting;
+}
+
+.main_visual {
+
+	#split {
+		font-family: 'Rubik Scribble', cursive;
+	}
+}
+
+.section-02 .text {
+	font-family: "Advent Pro", sans-serif;
+	font-weight: 900;
+	font-stretch: 125%;
+}
+
+html,
+body {
+	/* font-size: 10px; */
+	font-size: 62.5%;
+	max-width: 192rem;
+
+}
+
+
+:root {
+	--glow: #f8ffdad0;
+	--shadow: #f0ecec9c;
+
+	--s: 126px;
+	--c1: #000000;
+	--c2: #ffffff;
+	--c3: #8708da;
+	--c4: #211bc7;
+
+	--complex-pattern:
+		radial-gradient(calc(25%/3) calc(25%/4) at 50% 100%, #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%, var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%),
+		radial-gradient(calc(25%/3) calc(25%/4) at 50% 100%, #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%, var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%) calc(var(--s)/2) calc(3*var(--s)/4),
+		radial-gradient(calc(25%/3) calc(25%/4) at 50% 0, #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%, var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%) calc(var(--s)/2) 0,
+		radial-gradient(calc(25%/3) calc(25%/4) at 50% 0, #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%, var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%) 0 calc(3*var(--s)/4),
+		repeating-linear-gradient(90deg, var(--c3) calc(25%/-6) calc(25%/6), var(--c4) 0 calc(25%/2));
+}
+
+.section-05 {
+	* {
+		box-sizing: border-box;
+	}
+
+	:root {
+		color-scheme: light dark;
+		--bg-dark: rgb(24, 24, 27);
+		--bg-light: rgb(229, 229, 229);
+
+		--txt-light: rgb(10, 10, 10);
+		--txt-dark: rgb(245, 245, 245);
+	}
+
+	background-color: light-dark(var(--bg-light), var(--bg-dark));
+	color: light-dark(var(--txt-light), var(--txt-dark));
+	min-height: 100svh;
+	margin: 0;
+	padding: 1rem;
+	font-size: 1rem;
+	font-family: system-ui;
+	line-height: 1.5;
+	display: grid;
+	place-items: center;
+	gap: 2rem;
+
+
+	code {
+		color: steelblue;
+	}
+}
