@@ -98,7 +98,7 @@
 
                 // Calculate duration based on distance and speed
                 // Slower chars take longer to reach destination
-                const duration = 5 + (1 / speed) * 10;
+                const duration = 5 + (1 / speed) * 7;
 
                 // Add delay based on character index
                 const delay = 4.5 + i * 0.05;
@@ -118,10 +118,23 @@
                     onRepeat: function () {
                         // Reset to top left with slight random variation
                         gsap.set(char, {
-                            x: -viewportWidth / 2 + Math.random() * 200,
-                            y: -viewportHeight / 2 + Math.random() * 200
+                            x: -viewportWidth / 2 + Math.random() * 150,
+                            y: -viewportHeight / 2 + Math.random() * 150
                         });
                     }
+                });
+            });
+
+
+            //section-01에서 02 이어지는 버튼자소서효과
+
+            $(document).ready(function () {
+
+
+
+
+                $('.fadeToggle').on('click', function () {
+                    $(this).siblings('.inner').fadeToggle(500, 'easeOutCirc');
                 });
             });
 
@@ -135,12 +148,16 @@
 
 
 <body>
+
+    <!-- 메인비주얼 -->
     <main class="main_visual">
-        <h1 id="split">◽Connecting➖the➖Dots🖼</h1>
+        <h1 id="split">◽Connecting◽the◽Dots◽</h1>
+
 
 
         <div class="book-container">
             <div class="book">
+                <a href="#section-01"></a>
                 <div class="book-cover front-cover">
                 </div>
                 <div class="book-cover back-cover"></div>
@@ -151,31 +168,154 @@
         </div>
     </main><!-- main_visual end -->
 
+
+    <!-- 메인1-자기소개 -->
+    <section id="section-01" class="section-01" data-aos="zoom-in-up" data-aos-delay="400">
+        <div class="inner">
+            <div class="text">
+                <h2>Connecting the Dots:<br /> From Structure to Experience</h2>
+                <p>
+
+                    점 하나하나가 모여 선을 이루고,
+                    그 선이 이어져 하나의 화면이 됩니다. <br />
+
+
+                    퍼블리싱은 그 <span>‘연결의 과정’</span>입니다.
+                    단순한 연결 속에서 기술은 경험이 되고,
+                    감성은 구조 속에서 완성됩니다.<br />
+                    그리고 그 모든 흐름 안에는 저의 <span>시간</span>이 있습니다.<br />
+
+                    <span>시행착오와 탐색의 흔적 등 작은 점</span>이 쌓여 지금의 저를 만들었습니다.<br />
+                    구조를 설계하고 감성을 구현하는 사람,
+                    그 과정 속에서 쌓인 감각과 시행착오,<br />
+                    그것이 <span>지금의 나를 만든 선</span>이며,
+                    그 모든 경험을 <span>연결해 세상을 디자인하는 웹 퍼블리셔</span>입니다.
+
+                </p>
+
+                <span class="highlight">앞으로의 저의 여정을 함께해 주세요.</span>
+
+                <button type="button" class="fadeToggle">About Me(Click)</button>
+            </div><!-- .text end -->
+
+        </div><!-- .inner end -->
+    </section><!-- .section-01 end -->
+
+
+    <!-- 자기소개 -->
     <section class="section-02">
+        <div class="inner">
+            <div class="image">
+                <img src="img/me.jpg" alt="증명사진">
+                <ul class="contact">
+
+                    <div class="name">
+                        <li class="big">김소원</li>
+                        <li>Kim SoWon</li>
+                    </div><!-- .name end -->
+                    <div class="birth">
+                        <li class="big">B</li>
+                        <li>1995.06.07</li>
+                    </div><!-- birth end -->
+                    <div class="phone">
+                        <li class="big">P</li>
+                        <li>010-2047-8672</li>
+                        <!-- .phone end -->
+                        <div class="mail">
+                            <li class="big">M</li>
+                            <li>fthg0207@naver.com</li>
+                        </div><!-- .mail end -->
+                </ul><!-- name end -->
+                <button>
+                    <a href="#">이력서보기</a>
+                </button>
+            </div><!-- .image end -->
+            <!-- 증명사진 -->
+            <div class="list">
+
+                <ul class="text">
+                    <li class="bold">학력</li>
+                    <li>2016.02 부산예술대학교 실용음악과 작곡 졸업</li>
+                    <li>2014.02 양산여자고등학교 졸업</li>
+                    <li class="bold">주요활동 및 사회경험</li>
+                    <li>2025 그린컴퓨터 아카데미 UI/UX 반응형 웹디자인 & 웹퍼블리셔 양성과정 수료</li>
+                    <li>2021.03-2025.03 신세계인터네셔널 SSG.COM 사원</li>
+                    <li>2020.11-2021.03 쿠팡 물류센터 사원</li>
+                    <li>2019.06-2020.05 롯데백화점 MVG라운지</li>
+                    <li>2020 2020맞춤형 영화영상 전문인력 양성 온라인 영화음악심화과정 수료</li>
+                    <li>2017.11-2019 맥도날드 근무</li>
+                    <li>2016 부산 문화재단 기본 음향기기의 세팅과 운영실습과정 수료</li>
+                    <li>2015 부경대학교주회 부경대학가요제 동상 수상</li>
+                </ul><!-- .text end -->
+
+
+
+                <!-- 키워드 -->
+                <div class="wrapper">
+                    <ul class="summary">
+                        <li>
+                            Figma <span class="leg">Figma</span>Figma<br>
+                            FigmaFigmaFigmaFigmaFigmaFigmaFigmaFigmaFigma
+                        </li>
+                        <li>
+                            Figma <span class="stink-bug">Figma</span>Figma<br>
+                            FigmaFigmaFigmaFigmaFigmaFigmaFigmaFigmaFigma
+                        </li>
+                        <li>
+                            Figma <span class="click-beetle">Figma</span>Figma<br>
+                            FigmaFigmaFigmaFigmaFigmaFigmaFigmaFigmaFigma
+                        </li>
+                        <li>
+                             <span class="cricket">Figma</span>Figma<br>
+                            FigmaFigmaFigmaFigmaFigmaFigmaFigmaFigmaFigma
+                        </li>
+                        <li>
+                            Figma <span class="firefly">Figma</span>Figma<br>
+                            FigmaFigmaFigmaFigmaFigmaFigmaFigmaFigmaFigma
+                        </li>
+                        <li>photoshop <span class="damselfly">photoshop</span> photoshop
+                            photoshop photoshop <span class="trophy">photoshop</span>photoshop</li>
+                        <li>visualvisual</span>visual<span class="ladybug">visual</span>,
+                            stink bugs</span>,visual visual</span>,
+                           visual</span>visual<span class="judge">visual</span>
+                        </li>
+                    </ul><!--summary end  -->
+
+
+                </div><!-- wrapper end -->
+            </div><!-- .inner end -->
+    </section><!-- section-02 end -->
+
+    <section class="section-03">
         <div class="text">
             <h1 class='text-fill'>Coding</h1>
         </div><!-- .text end -->
-    </section><!-- section-02 end -->
-    <!-- 자기소개 -->
-    <section class="section-05">
-        <div class="wrapper">
-            <section class="summary">
-                <p>
-                    Do you have six <span class="leg">legs</span>? Do you wiggle or crawl?<br>
-                    Could YOU be the bugliest bug of them all?
-                </p>
-                <p>When <span class="damselfly">damselfly</span> Dilly hears about the Bugliest Bug contest, she goes
-                    along to see who will <span class="trophy">win</span>.</p>
-                <p>There are <span class="firefly">fireflies</span>, <span class="ladybug">ladybirds</span>, <span
-                        class="stink-bug">stink bugs</span>, <span class="click-beetle">click beetles</span>, <span
-                        class="cricket">crickets</span>... and some very suspicious-looking <span
-                        class="judge">judges</span>!
-                </p>
-            </section>
 
-            <p class="credits">"The Bugliest Bug" by Carol Diggory Shields</p>
-        </div>
-    </section><!-- section-05 end -->
+        <section class="con01">
+            <h2><span>GSAP</span> scrolltrigger</h2>
+        </section><!-- con01 end -->
+
+        <div class="con02">
+            <div class="circle">
+                <div class="text_box">
+                    <p>
+                        our releases<br>
+                        get a feeling<br>
+                        for the latest<br>
+                        selected sound
+                    </p>
+                </div><!-- text_box end -->
+            </div><!-- circle end -->
+        </div><!-- con02 end -->
+
+        <div class="con03">
+            <h2>scroll trigger</h2>
+        </div><!-- .con03 end -->
+
+    </section><!-- section-03 end -->
+
+
+
 
 
     <footer class="footer">

@@ -2,6 +2,13 @@
 @import url("https://fonts.bunny.net/css?family=annie-use-your-telescope:400");
 @import url("https://fonts.googleapis.com/css2?family=Advent+Pro:wdth,wght@125,900&display=swap");
 
+@font-face {
+	font-family: 'Mbc1961';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961M.woff2') format('woff2');
+	font-weight: normal;
+	font-display: swap;
+}
+
 .summary {
 	font-family: "Annie Use Your Telescope", handwriting;
 }
@@ -13,7 +20,7 @@
 	}
 }
 
-.section-02 .text {
+.section-03 .text {
 	font-family: "Advent Pro", sans-serif;
 	font-weight: 900;
 	font-stretch: 125%;
@@ -23,7 +30,7 @@ html,
 body {
 	/* font-size: 10px; */
 	font-size: 62.5%;
-	max-width: 192rem;
+	scroll-behavior: smooth;
 
 }
 
@@ -46,10 +53,11 @@ body {
 		repeating-linear-gradient(90deg, var(--c3) calc(25%/-6) calc(25%/6), var(--c4) 0 calc(25%/2));
 }
 
+.section-02 {
+	font-family: 'Mbc1961', sans-serif;
+}
+
 .section-05 {
-	* {
-		box-sizing: border-box;
-	}
 
 	:root {
 		color-scheme: light dark;
