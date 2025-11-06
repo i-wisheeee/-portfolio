@@ -1,6 +1,5 @@
-@import url("http://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap");
-@import url("https://fonts.bunny.net/css?family=annie-use-your-telescope:400");
 @import url("https://fonts.googleapis.com/css2?family=Advent+Pro:wdth,wght@125,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Tiny5&family=Jersey+10&display=swap");
 
 @font-face {
 	font-family: 'Mbc1961';
@@ -9,16 +8,34 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: 'NanumJeomGgorCe';
+	src: url('../font/jum/NanumJeomGgorCe.eot');
+	/* IE9 Compat Modes */
+	src: url('../font/jum/NanumJeomGgorCe.woff2') format('woff2'),
+		/* Super Modern Browsers */
+		url('../font/jum/NanumJeomGgorCe.woff') format('woff');
+	/* Modern Browsers */
+
+
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+
+
+.logo-text,
+.here {
+	font-family: 'NanumJeomGgorCe'; 
+}
+
 .summary {
 	font-family: "Annie Use Your Telescope", handwriting;
 }
 
-.main_visual {
 
-	#split {
-		font-family: 'Rubik Scribble', cursive;
-	}
-}
 
 .section-03 .text {
 	font-family: "Advent Pro", sans-serif;
@@ -31,11 +48,14 @@ body {
 	/* font-size: 10px; */
 	font-size: 62.5%;
 	scroll-behavior: smooth;
+	background-color: #000;
 
 }
 
 
 :root {
+
+
 	--glow: #f8ffdad0;
 	--shadow: #f0ecec9c;
 
@@ -44,13 +64,12 @@ body {
 	--c2: #ffffff;
 	--c3: #8708da;
 	--c4: #211bc7;
+	--bg-dark: rgb(24, 24, 27);
+	--bg-light: rgb(229, 229, 229);
 
-	--complex-pattern:
-		radial-gradient(calc(25%/3) calc(25%/4) at 50% 100%, #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%, var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%),
-		radial-gradient(calc(25%/3) calc(25%/4) at 50% 100%, #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%, var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%) calc(var(--s)/2) calc(3*var(--s)/4),
-		radial-gradient(calc(25%/3) calc(25%/4) at 50% 0, #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%, var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%) calc(var(--s)/2) 0,
-		radial-gradient(calc(25%/3) calc(25%/4) at 50% 0, #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%, var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%) 0 calc(3*var(--s)/4),
-		repeating-linear-gradient(90deg, var(--c3) calc(25%/-6) calc(25%/6), var(--c4) 0 calc(25%/2));
+	--txt-light: rgb(10, 10, 10);
+	--txt-dark: rgb(245, 245, 245);
+
 }
 
 .section-02 {
@@ -59,17 +78,10 @@ body {
 
 .section-05 {
 
-	:root {
-		color-scheme: light dark;
-		--bg-dark: rgb(24, 24, 27);
-		--bg-light: rgb(229, 229, 229);
+	background-color: var(--bg-light);
+	color: var(--txt-light);
 
-		--txt-light: rgb(10, 10, 10);
-		--txt-dark: rgb(245, 245, 245);
-	}
 
-	background-color: light-dark(var(--bg-light), var(--bg-dark));
-	color: light-dark(var(--txt-light), var(--txt-dark));
 	min-height: 100svh;
 	margin: 0;
 	padding: 1rem;

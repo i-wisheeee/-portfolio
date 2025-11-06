@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Nanum JeomGgorCe';
+    src: url('NanumJeomGgorCe.eot');
+    src: url('NanumJeomGgorCe.eot?#iefix') format('embedded-opentype'),
+        url('NanumJeomGgorCe.woff2') format('woff2'),
+        url('NanumJeomGgorCe.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

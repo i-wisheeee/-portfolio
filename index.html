@@ -13,6 +13,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="lib/gsap.min.js"></script>
 
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
@@ -27,15 +28,15 @@
             AOS.init();
             document.addEventListener('DOMContentLoaded', () => {
                 const hoverArea = document.querySelector('.book-container');
-                const body = document.body;
+                const main_visual = document.main_visual;
 
                 if (hoverArea) {
                     hoverArea.addEventListener('mouseenter', () => {
-                        body.classList.add('background-changed');
+                        main_visual.classList.add('background-changed');
                     });
 
                     hoverArea.addEventListener('mouseleave', () => {
-                        body.classList.remove('background-changed');
+                        main_visual.classList.remove('background-changed');
                     });
                 }
             });
@@ -54,90 +55,69 @@
             AddFireflys(200);
 
             //메인비주얼 텍스트
-            gsap.registerPlugin(SplitText, Physics2DPlugin);
+
+
+            function createCloud() {
+                const cloud = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                cloud.setAttribute("class", "cloud");
+                cloud.setAttribute("viewBox", "0 0 60 30");
+
+                const cloudPath = document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "path"
+                );
+                cloudPath.setAttribute(
+                    "d",
+                    "M0,20 h10 v-10 h10 v10 h10 v-10 h10 v10 h10 v10 h-50 z"
+                );
+                cloudPath.setAttribute("fill", "#ffffff");
+
+                cloud.appendChild(cloudPath);
+                cloud.style.top = Math.random() * window.innerHeight + "px";
+                cloud.style.animationDuration = 15 + Math.random() * 10 + "s";
+
+                document.getElementById("clouds").appendChild(cloud);
+
+                // Remove cloud when animation ends
+                setTimeout(() => {
+                    cloud.remove();
+                }, 25000);
+            }
+
+            // Create new clouds periodically
+            setInterval(createCloud, 3000);
+
+            // Create initial clouds
+            for (let i = 0; i < 5; i++) {
+                createCloud();
+            }
 
 
 
-            // Get viewport dimensions
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
 
-            // Create split text instance
-            var split = new SplitText("#split", { type: "chars" });
-            var chars = split.chars;
-            tl = gsap.timeline({ repeat: -1 });
 
-            // Make text visible after split
-            gsap.set("#split", { opacity: 1 });
-
-            tl.from(split.chars, {
-                duration: 10,
-                y: 100,
-                rotation: 90,
-                opacity: 0,
-                ease: "elastic",
-                stagger: 0.03
-            });
-
-            // Set each character at a starting position in top left area
-            /* gsap.set(chars, {
-                x: () => -viewportWidth/2 + Math.random() * 200, 
-                y: () => -viewportHeight/2 + Math.random() * 200,
-                transformOrigin: "center center"
-            });
-            */
-
-            // Float characters from top left to bottom right
-            chars.forEach((char, i) => {
-                // Random but constant speed
-                const speed = 0.5 + Math.random() * 1.5;
-
-                // Calculate distance to travel
-                const distX = viewportWidth - 100; // Leave some margin
-                const distY = viewportHeight - 100; // Leave some margin
-
-                // Calculate duration based on distance and speed
-                // Slower chars take longer to reach destination
-                const duration = 5 + (1 / speed) * 7;
-
-                // Add delay based on character index
-                const delay = 4.5 + i * 0.05;
-
-                // Random rotations
-                const rotations = Math.random() * 3 + 1;
-
-                // Animate the character
-                gsap.to(char, {
-                    x: "+=" + (distX * 0.7 + Math.random() * (distX * 0.3)),
-                    y: "+=" + (distY * 0.7 + Math.random() * (distY * 0.3)),
-                    rotation: 360 * rotations,
-                    duration: duration,
-                    delay: delay,
-                    ease: "none",
-                    repeatDelay: 0.1,
-                    onRepeat: function () {
-                        // Reset to top left with slight random variation
-                        gsap.set(char, {
-                            x: -viewportWidth / 2 + Math.random() * 150,
-                            y: -viewportHeight / 2 + Math.random() * 150
-                        });
-                    }
+            //메인1로이동
+            $('.book-container').on('click', function () {
+                window.scrollTo({
+                    top: document.querySelector('.section-01').offsetTop,
+                    behavior: 'smooth'
                 });
             });
 
 
             //section-01에서 02 이어지는 버튼자소서효과
 
-            $(document).ready(function () {
 
 
-
-
-                $('.fadeToggle').on('click', function () {
-                    $(this).siblings('.inner').fadeToggle(500, 'easeOutCirc');
-                });
+            $('.section-01 .fadeToggle').on('click', function () {
+                // section-02 전체를 선택해서 토글
+                $('.section-02').fadeToggle(1000, 'easeOutBounce');
+            
             });
 
+            $('.section-02 .fadeToggle').on('click', function (){
+               $('.section-02').fadeToggle(1000, 'easeOutBounce');
+            });
 
 
         });//script end
@@ -151,13 +131,17 @@
 
     <!-- 메인비주얼 -->
     <main class="main_visual">
-        <h1 id="split">◽Connecting◽the◽Dots◽</h1>
+        <div id="clouds"></div>
+
+        <div class="logo-text">_Connecting_the_Dots_</div>
+        <div class="here">CLICK HERE⇢</div>
+
 
 
 
         <div class="book-container">
             <div class="book">
-                <a href="#section-01"></a>
+                <a href="#"></a>
                 <div class="book-cover front-cover">
                 </div>
                 <div class="book-cover back-cover"></div>
@@ -193,10 +177,10 @@
 
                 </p>
 
-                <span class="highlight">앞으로의 저의 여정을 함께해 주세요.</span>
-
-                <button type="button" class="fadeToggle">About Me(Click)</button>
+                <span class="highlight" data-aos="zoom-in" data-aos-delay="400">앞으로의 저의 여정을 함께해 주세요.</span>
+                <em><img src="img/ArrowDown.png" alt="화살표밑"></em>
             </div><!-- .text end -->
+            <button type="button" class="fadeToggle">About Me(Click)</button>
 
         </div><!-- .inner end -->
     </section><!-- .section-01 end -->
@@ -208,44 +192,52 @@
             <div class="image">
                 <img src="img/me.jpg" alt="증명사진">
                 <ul class="contact">
-
-                    <div class="name">
-                        <li class="big">김소원</li>
-                        <li>Kim SoWon</li>
-                    </div><!-- .name end -->
-                    <div class="birth">
-                        <li class="big">B</li>
-                        <li>1995.06.07</li>
-                    </div><!-- birth end -->
-                    <div class="phone">
-                        <li class="big">P</li>
-                        <li>010-2047-8672</li>
-                        <!-- .phone end -->
+                    <div class="group">
+                        <div class="name">
+                            <li class="big">김소원</li>
+                            <li>Kim Sowon</li>
+                        </div><!-- .name end -->
+                        <div class="birth">
+                            <li class="big">B</li>
+                            <li>1995.06.07</li>
+                        </div><!-- birth end -->
+                        <div class="phone">
+                            <li class="big">P</li>
+                            <li>010-2047-8672</li>
+                        </div> <!-- .phone end -->
                         <div class="mail">
                             <li class="big">M</li>
                             <li>fthg0207@naver.com</li>
                         </div><!-- .mail end -->
-                </ul><!-- name end -->
-                <button>
-                    <a href="#">이력서보기</a>
-                </button>
+                    </div><!-- .group end -->
+                    <button>
+                        <a href="#">이력서보기</a>
+                    </button>
+                </ul><!-- contact end -->
+
+
             </div><!-- .image end -->
             <!-- 증명사진 -->
+
             <div class="list">
 
                 <ul class="text">
-                    <li class="bold">학력</li>
-                    <li>2016.02 부산예술대학교 실용음악과 작곡 졸업</li>
-                    <li>2014.02 양산여자고등학교 졸업</li>
-                    <li class="bold">주요활동 및 사회경험</li>
-                    <li>2025 그린컴퓨터 아카데미 UI/UX 반응형 웹디자인 & 웹퍼블리셔 양성과정 수료</li>
-                    <li>2021.03-2025.03 신세계인터네셔널 SSG.COM 사원</li>
-                    <li>2020.11-2021.03 쿠팡 물류센터 사원</li>
-                    <li>2019.06-2020.05 롯데백화점 MVG라운지</li>
-                    <li>2020 2020맞춤형 영화영상 전문인력 양성 온라인 영화음악심화과정 수료</li>
-                    <li>2017.11-2019 맥도날드 근무</li>
-                    <li>2016 부산 문화재단 기본 음향기기의 세팅과 운영실습과정 수료</li>
-                    <li>2015 부경대학교주회 부경대학가요제 동상 수상</li>
+                    <div class="a">
+                        <li class="bold">학력</li>
+                        <li>2016.02 부산예술대학교 실용음악과 작곡 졸업</li>
+                        <li>2014.02 양산여자고등학교 졸업</li>
+                        <!-- .a end -->
+                        <div class="a">
+                            <li class="bold">주요활동 및 사회경험</li>
+                            <li>2025 그린컴퓨터 아카데미 UI/UX 반응형 웹디자인 & 웹퍼블리셔 양성과정 수료</li>
+                            <li>2021.03-2025.03 신세계인터네셔널 SSG.COM 사원</li>
+                            <li>2020.11-2021.03 쿠팡 물류센터 사원</li>
+                            <li>2019.06-2020.05 롯데백화점 MVG라운지</li>
+                            <li>2020 2020맞춤형 영화영상 전문인력 양성 온라인 영화음악심화과정 수료</li>
+                            <li>2017.11-2019 맥도날드 근무</li>
+                            <li>2016 부산 문화재단 기본 음향기기의 세팅과 운영실습과정 수료</li>
+                            <li>2015 부경대학교주최 부경대학가요제 동상 수상</li>
+                        </div><!-- .a end -->
                 </ul><!-- .text end -->
 
 
@@ -266,7 +258,7 @@
                             FigmaFigmaFigmaFigmaFigmaFigmaFigmaFigmaFigma
                         </li>
                         <li>
-                             <span class="cricket">Figma</span>Figma<br>
+                            <span class="cricket">Figma</span>Figma<br>
                             FigmaFigmaFigmaFigmaFigmaFigmaFigmaFigmaFigma
                         </li>
                         <li>
@@ -277,13 +269,15 @@
                             photoshop photoshop <span class="trophy">photoshop</span>photoshop</li>
                         <li>visualvisual</span>visual<span class="ladybug">visual</span>,
                             stink bugs</span>,visual visual</span>,
-                           visual</span>visual<span class="judge">visual</span>
+                            visual</span>visual<span class="judge">visual</span>
                         </li>
                     </ul><!--summary end  -->
 
 
                 </div><!-- wrapper end -->
-            </div><!-- .inner end -->
+            </div><!-- .list end -->
+            <button type="button" class="fadeToggle">About Me(Close)</button>
+        </div><!-- .inner end -->
     </section><!-- section-02 end -->
 
     <section class="section-03">
