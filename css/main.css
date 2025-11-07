@@ -9,6 +9,7 @@
   position: relative;
   margin-bottom: 40rem;
   min-height: 100vh;
+  font-weight: 550;
   overflow: hidden;
   font-size: 2rem;
   perspective: 1200rem;
@@ -23,7 +24,6 @@
   transform-style: preserve-3d;
   font-size: 10rem;
   letter-spacing: 0.1em;
-  font-weight: bold;
   position: absolute;
   top: 10%;
   left: 50%;
@@ -34,7 +34,6 @@
 .main_visual .here {
   margin-top: 20rem;
   font-size: 7rem;
-  font-weight: 600;
   color: rgba(255, 255, 255, 0.9333333333);
   position: absolute;
   top: 30%;
